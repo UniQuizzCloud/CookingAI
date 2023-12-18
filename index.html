@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Message</title>
+</head>
+<body>
+    <h1>Welcome to Cooking AI</h1>
+    <div id="message">Loading...</div>
+    <script>
+        async function fetchWelcomeMessage() {
+            const response = await fetch('/welcomeMessage');
+            const data = await response.json();
+            document.getElementById('message').innerText = data.choices[0].message.content;
+        }
+        fetchWelcomeMessage();
+    </script>
+</body>
+</html>
